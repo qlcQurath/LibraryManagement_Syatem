@@ -71,3 +71,13 @@ Backend Configuration
     * Microsoft.AspNet.WebApi.Cors
 After installing the packages, add the following line in WebApiConfig.cs:
    -- config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+## Screenshots
+
+1. Home Page![Homepage]
+
+(https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/9cf985f6-14a0-4b6c-b1d7-79ad68d4898b)
+![Homepage](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/9cf985f6-14a0-4b6c-b1d7-79ad68d4898b)
+
+
+2. 
