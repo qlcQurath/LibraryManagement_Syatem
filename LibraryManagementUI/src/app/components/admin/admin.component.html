@@ -1,0 +1,124 @@
+<body class="admin_style">
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="h-100">
+          <div class="sidebar-logo sidebar-color py-2">
+            <a href="admin">
+              <i class="fa-solid fa-carrot pe-2"></i>
+              <span class="link-text">Zesty</span>
+            </a>
+          </div>
+          <!-- Sidebar Navigation -->
+          <ul class="sidebar-nav">
+            <li class="sidebar-item">
+              <a href="admin" class="sidebar-link">
+                <i class="fa-solid fa-gauge-high pe-2"></i>
+                <span class="link-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item manage-students">
+              <a href="managestudents" class="sidebar-link collapsed">
+                <i class="fa-solid fa-user pe-2"></i>
+                <span class="link-text">ManageStudent</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="managebook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-bars-progress pe-2"></i>
+                <span class="link-text">Manage Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="addbook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-book pe-2"></i>
+                <span class="link-text">Add Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="bookissue" class="sidebar-link collapsed">
+                <i class="fa-solid fa-book-open-reader pe-2"></i>
+                <span class="link-text">Book Issue</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="returnbook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-right-left pe-2"></i>
+                <span class="link-text">Return Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="returntracker" class="sidebar-link collapsed">
+                <i class="fa-solid fa-rotate-left pe-2"></i>
+                <span class="link-text">ReturnTracker</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="report" class="sidebar-link collapsed">
+                <i class="fa-solid fa-flag pe-2"></i>
+                <span class="link-text">Report</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a (click)="logout()" class="sidebar-link collapsed appLogout">
+                <i class="fa-solid fa-power-off pe-2"></i>
+                <span class="link-text">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Component -->
+      <div class="main">
+        <nav class="navbar navbar-expand px-3 border-bottom nav-custum">
+          <!-- Button for sidebar toggle -->
+          <button class="btn text-left btn-custum" type="button" data-bs-theme="dark">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        <main class="content px-3 py-2">
+          <div class="container-fluid">
+            <div class="mb-3">
+              <h1>Dashboard</h1>
+            </div>
+            <div class="row">
+              <div class="col-10 col-sm-10 col-md-4 mb-1">
+                <div class="card tile1">
+                  <div class="card-body">
+                    <h5 class="card-title">Number of Students</h5>
+                    <p class="card-text">Total: <span id="studentCount">{{ studentCount }}</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-10 col-sm-10 col-md-4 mb-1">
+                <div class="card tile2">
+                  <div class="card-body">
+                    <h5 class="card-title">Number of Books</h5>
+                    <p class="card-text">Total: <span id="bookCount">{{ bookCount }}</span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-10 col-sm-10 col-md-4 mb-1">
+                <div class="card tile3">
+                  <div class="card-body">
+                    <h5 class="card-title">Books Pending Return</h5>
+                    <p class="card-text">Total: <span id="pendingReturnCount">{{ pendingReturnCount }}</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4">
+              <div class="col-10 col-sm-10 col-md-12 mb-2">
+                <div class="card chart">
+                  <div class="card-body">
+                    <h5 class="card-title">Books Borrowed Daily</h5>
+                    <canvas id="borrowedBooksChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>

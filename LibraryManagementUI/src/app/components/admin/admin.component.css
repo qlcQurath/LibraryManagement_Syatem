@@ -1,0 +1,236 @@
+/*Admin Component start*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+.admin_style {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  /*background-image: url("https://codzsword.github.io/bootstrap-sidebar/background-image.jpg");*/
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+
+h3 {
+  font-size: 1.2375rem;
+  color: #2f413e;
+}
+
+h1{
+  padding-bottom: 1rem;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+/* Layout skeleton */
+
+.wrapper {
+  align-items: stretch;
+  display: flex;
+  width: 100%;
+}
+
+/* Ensure only the "Manage Students" link is affected */
+.manage-students .sidebar-link {
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.manage-students .link-text {
+  white-space: nowrap; /* Prevent line breaks */
+  display: inline-block; /* Ensure the text stays on one line */
+}
+
+/*end manage-students styling*/
+
+#sidebar {
+  background-color: #800020;
+  max-width: 200px;
+  min-width: 200px;
+  transition: all 0.35s ease-in-out;
+  z-index: 1111;
+}
+
+.sidebar-color {
+  background-color: #de5d83;
+  height: 54.94px;
+}
+
+/* Sidebar collapse */
+
+#sidebar.collapsed {
+  /*margin-left: -200px;*/
+  max-width: 60px;
+  min-width: 60px;
+}
+
+#sidebar.collapsed .link-text {
+  display: none;
+}
+
+#sidebar.collapsed .sidebar-text {
+  display: flex;
+  text-align: center;
+  padding: .625rem 1.625rem;
+  color: #e9ecef;
+  position: relative;
+  font-size: 1rem;
+}
+
+#sidebar .sidebar-link .link-text {
+  margin-left: 10px;
+}
+
+#sidebar.collapsed .sidebar-link:hover .link-text {
+  display: inline-block;
+  position: absolute;
+  left: 60px;
+  top: 0;
+  color: #fff;
+  background-color: #de5d83;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  transition: all 0.35s ease-in-out;
+}
+
+.tile1{
+  background-color: #b43757;
+  height: 10rem;
+  border-color: #b43757;
+}
+
+.tile2{
+  background-color: #c64bbc; /*mulbery*/
+  height: 10rem;
+  border-color: #c64bbc;
+}
+
+.tile3{
+  height: 10rem;
+  background-color: #ed115f;
+  border-color: #ed115f;
+}
+
+.card{
+  color: white;
+}
+
+.chart{
+  color: black;
+}
+
+.sidebar-logo {
+  padding: 1.15rem 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+
+}
+
+.sidebar-logo a {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#sidebar.collapsed .sidebar-logo {
+  padding: 1.15rem 0.75rem;
+}
+
+#sidebar.collapsed .sidebar-logo a {
+  font-size: 1.8rem;
+  align-items: center;
+}
+
+.sidebar-nav {
+  padding: 0;
+}
+
+.sidebar-header {
+  color: #e9ecef;
+  font-size: .75rem;
+  padding: 1.5rem 1.5rem .375rem;
+}
+
+a.sidebar-link {
+  padding: .625rem 1.625rem;
+  color: white;
+  position: relative;
+  display: block;
+  justify-content: flex-start;
+  font-size: 1rem;
+}
+
+.sidebar-link[data-bs-toggle="collapse"]::after {
+  border: solid;
+  border-width: 0 .075rem .075rem 0;
+  content: "";
+  display: inline-block;
+  padding: 2px;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.4rem;
+  transform: rotate(-135deg);
+  transition: all .2s ease-out;
+}
+
+.sidebar-link[data-bs-toggle="collapse"].collapsed::after {
+  transform: rotate(45deg);
+  transition: all .2s ease-out;
+}
+
+.nav-custum{
+  background-color: #800020;
+}
+.btn-custum{
+  border-color: #de5d83;
+}
+
+.content {
+  flex: 1;
+  max-width: 100vw;
+  width: 100vw;
+}
+
+/*Table style start*/
+th{
+  background-color: #920700 !important;
+}
+
+tr:hover{
+  background-color: #920700 !important;
+  color: #fff;
+}
+/*Table style end*/
+
+/* Responsive */
+
+@media (min-width:768px) {
+  .content {
+    width: auto;
+  }
+}
+
+/*Admin Component end*/

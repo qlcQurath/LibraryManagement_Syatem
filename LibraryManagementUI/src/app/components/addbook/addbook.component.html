@@ -1,0 +1,135 @@
+<body class="admin_style">
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="h-100">
+          <div class="sidebar-logo sidebar-color py-2">
+            <a href="admin">
+              <i class="fa-solid fa-carrot pe-2"></i>
+              <span class="link-text">Zesty</span>
+            </a>
+          </div>
+          <!-- Sidebar Navigation -->
+          <ul class="sidebar-nav">
+            <li class="sidebar-item">
+              <a href="admin" class="sidebar-link">
+                <i class="fa-solid fa-gauge-high pe-2"></i>
+                <span class="link-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item manage-students">
+              <a href="managestudents" class="sidebar-link collapsed">
+                <i class="fa-solid fa-user pe-2"></i>
+                <span class="link-text">ManageStudent</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="managebook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-bars-progress pe-2"></i>
+                <span class="link-text">Manage Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="addbook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-book pe-2"></i>
+                <span class="link-text">Add Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="bookissue" class="sidebar-link collapsed">
+                <i class="fa-solid fa-book-open-reader pe-2"></i>
+                <span class="link-text">Book Issue</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="returnbook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-right-left pe-2"></i>
+                <span class="link-text">Return Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="returntracker" class="sidebar-link collapsed">
+                <i class="fa-solid fa-rotate-left pe-2"></i>
+                <span class="link-text">ReturnTracker</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="report" class="sidebar-link collapsed">
+                <i class="fa-solid fa-flag pe-2"></i>
+                <span class="link-text">Report</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a (click)="logout()" class="sidebar-link collapsed appLogout">
+                <i class="fa-solid fa-power-off pe-2"></i>
+                <span class="link-text">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Component -->
+      <div class="main">
+        <nav class="navbar navbar-expand px-3 border-bottom nav-custum">
+          <!-- Button for sidebar toggle -->
+          <button class="btn text-left btn-custum" type="button" data-bs-theme="dark">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        <main class="content px-3 py-2">
+          <div class="container-fluid">
+            <div class="mb-3">
+              <h1>Add Book</h1>
+              <form #bookForm="ngForm" (ngSubmit)="OnSubmit()" enctype="multipart/form-data">
+                <div class="form-row">
+                  <!-- Display UUID -->
+                  <div class="form-group col-10 col-sm-10 col-md-12">
+                    <label for="uuid" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="ID_B" name="uuid" [value]="uuid" readonly>
+                  </div>
+                  <div class="form-group col-10 col-sm-10 col-md-6">
+                    <label for="bookName" class="form-label">Book Name</label>
+                    <input type="text" class="form-control" id="book_name" name="bookName" required>
+                  </div>
+                  <div class="form-group col-10 col-sm-10 col-md-6">
+                    <label for="authorName" class="form-label">Author Name</label>
+                    <input type="text" class="form-control" id="author" name="authorName" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-10 col-sm-10 col-md-6">
+                    <label for="publisher" class="form-label">Publisher</label>
+                    <input type="text" class="form-control" id="publisher" name="publisher" required>
+                  </div>
+                  <div class="form-group col-10 col-sm-10 col-md-6">
+                    <label for="numberOfBooks" class="form-label">Number of Books</label>
+                    <input type="number" class="form-control" id="book_count" name="numberOfBooks" required>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-10 col-sm-10 col-md-6">
+                    <label for="costPerBook" class="form-label">Cost per Book</label>
+                    <input type="number" step="0.01" class="form-control" id="cost_per_book" name="costPerBook" required>
+                  </div>
+                  <div class="form-group col-10 col-sm-10 col-md-6">
+                    <label for="totalCost" class="form-label">Total Cost</label>
+                    <input type="number" step="0.01" class="form-control" id="total_cost" name="totalCost" required>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="col-10 col-md-6 mb-2 mb-md-0"> <!-- Each button occupies full width on small screens and half width on medium and larger -->
+                    <button type="submit" class="btn btn-primary w-100">Add Book</button>
+                  </div>
+                  <div class="col-10 col-md-6"> <!-- Each button occupies full width on small screens and half width on medium and larger -->
+                    <button type="button" class="btn btn-danger w-100" (click)="clearForm()">Clear Form</button>
+                  </div>
+                </div>
+                
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  
+  </body>

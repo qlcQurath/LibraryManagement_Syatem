@@ -1,0 +1,169 @@
+<body class="admin_style">
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="h-100">
+          <div class="sidebar-logo sidebar-color py-2">
+            <a href="admin">
+              <i class="fa-solid fa-carrot pe-2"></i>
+              <span class="link-text">Zesty</span>
+            </a>
+          </div>
+          <!-- Sidebar Navigation -->
+          <ul class="sidebar-nav">
+            <li class="sidebar-item">
+              <a href="admin" class="sidebar-link">
+                <i class="fa-solid fa-gauge-high pe-2"></i>
+                <span class="link-text">Dashboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item manage-students">
+              <a href="managestudents" class="sidebar-link collapsed">
+                <i class="fa-solid fa-user pe-2"></i>
+                <span class="link-text">ManageStudent</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="managebook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-bars-progress pe-2"></i>
+                <span class="link-text">Manage Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="addbook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-book pe-2"></i>
+                <span class="link-text">Add Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="bookissue" class="sidebar-link collapsed">
+                <i class="fa-solid fa-book-open-reader pe-2"></i>
+                <span class="link-text">Book Issue</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="returnbook" class="sidebar-link collapsed">
+                <i class="fa-solid fa-right-left pe-2"></i>
+                <span class="link-text">Return Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="returntracker" class="sidebar-link collapsed">
+                <i class="fa-solid fa-rotate-left pe-2"></i>
+                <span class="link-text">ReturnTracker</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a href="report" class="sidebar-link collapsed">
+                <i class="fa-solid fa-flag pe-2"></i>
+                <span class="link-text">Report</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a (click)="logout()" class="sidebar-link collapsed appLogout">
+                <i class="fa-solid fa-power-off pe-2"></i>
+                <span class="link-text">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Component -->
+      <div class="main">
+        <nav class="navbar navbar-expand px-3 border-bottom nav-custum">
+          <!-- Button for sidebar toggle -->
+          <button class="btn text-left btn-custum" type="button" data-bs-theme="dark">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        <main class="content px-3 py-2">
+          <div class="container-fluid">
+            <div class="mb-3">
+              <h1>Manage Students</h1>
+              <div class="table-responsive table-responsive-sm table-responsive-md col-10 col-sm-10 col-md-12 mt-2">
+                <table class="table table-bordered table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">USN</th>
+                      <th scope="col">First name</th>
+                      <th scope="col">Last name</th>
+                      <th scope="col">Age</th>
+                      <th scope="col">Gender</th>
+                      <th scope="col">Course</th>
+                      <th scope="col">Branch/Section</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone Number</th>
+                      <th scope="col">Action</th>
+                      <!---add delete user btn-->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- <tr *ngFor="let row of rows">
+                      <td>{{row.usn}}</td>
+                      <td>{{row.firstname}}</td>
+                      <td>{{row.lastname}}</td>
+                      <td>{{row.age}}</td>
+                      <td>{{row.gender}}</td>
+                      <td>{{row.course}}</td>
+                      <td>{{row.branch}}</td>
+                      <td>{{row.email}}</td>
+                      <td>{{row.phoneno}}</td>
+                      <td>
+                        <button class="btn btn-danger btn-sm" (click)="deleteRow_std(row.usn)"><i class="fa-solid fa-trash"></i></button>
+                        <button class="btn btn-primary btn-sm" (click)="addRow_std()"><i class="fa-solid fa-plus"></i></button>
+                      </td>
+                    </tr> -->
+  
+                    <tr *ngFor="let row of rows">
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.usn}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.usn"></td>
+              
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.firstname}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.firstname"></td>
+              
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.lastname}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.lastname"></td>
+              
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.age}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.age"></td>
+              
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.gender}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.gender"></td>
+              
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.course}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.course"></td>
+              
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.branch}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.branch"></td>
+              
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.email}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.email"></td>
+              
+                      <td *ngIf="editingRow?.usn !== row.usn">{{row.phoneno}}</td>
+                      <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.phoneno"></td>
+              
+                      <td>
+                        <button *ngIf="editingRow?.usn !== row.usn" class="btn btn-danger btn-sm" (click)="deleteRow_std(row.usn)">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <button *ngIf="editingRow?.usn !== row.usn" class="btn btn-primary btn-sm" (click)="editRow_std(row)">
+                          <i class="fa-solid fa-edit"></i>
+                        </button>
+                        <button *ngIf="editingRow?.usn === row.usn" class="btn btn-success btn-sm" (click)="saveRow_std()">
+                          <i class="fa-solid fa-save"></i>
+                        </button>
+                        <button *ngIf="editingRow?.usn === row.usn" class="btn btn-secondary btn-sm" (click)="cancelEdit()">
+                          <i class="fa-solid fa-times"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  
+  </body>

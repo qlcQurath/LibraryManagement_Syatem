@@ -1,0 +1,106 @@
+<body class="register_style">
+    <!-- section -->
+    <section class="register" runat="server">
+        <div class="register-full">
+            <div class="register-left">
+                <div class="register-in">
+                    <h1>Register Form</h1>
+                    <p>Welcome to our library, a hub of knowledge and exploration where the love for literature meets
+                        the joy of learning. At our library, we strive to create an enriching environment that fosters
+                        curiosity, imagination, and lifelong learning.
+                    </p>
+                    <p>Join our vibrant community of book enthusiasts today by registering for your library account.
+                    </p>
+                    <div class="link">
+                        <a href="login">Already have an account</a>
+                    </div>
+                </div>
+            </div>
+            <div class="register-right">
+                <div class="register-in">
+                    <h2>register here</h2>
+                    <div class="register-form">
+                        <form id="myForm" (submit)="saveregdata($event)">
+                            <div class="fields-grid">
+                                <div class="styled-input agile-styled-input-top">
+                                    <input type="text" id="firstname" name="firstname" required="" />
+                                    <label>First name</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="text" id="lastname" name="lastname" required="" />
+                                    <label>Last name</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="number" id="age" name="age" required="" />
+                                    <label>Age</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <select id="gender" name="gender" runat="server">
+                                        <option value="Select Gender">Select Gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Prefer not">Other</option>
+                                    </select>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="text" id="usn" name="usn" required="" />
+                                    <label>USN</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <select id="course" name="course" runat="server">
+                                        <option value="Select Course">Select Course</option>
+                                        <option value="B.E">B.E</option>
+                                        <option value="BCA">BCA</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <select id="branch" name="branch" runat="server">
+                                        <option value="Select Branch/Section">Select Branch/Section</option>
+                                        <option value="CSE">CSE</option>
+                                        <option value="ISE">ISE</option>
+                                        <option value="ECE">ECE</option>
+                                        <option value="ME">ME</option>
+                                        <option value="CV">CV</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="email" id="email" name="email" required="" />
+                                    <label>Email</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="tel" id="phoneno" name="phoneno" required="" />
+                                    <label>Phone Number</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="password" id="password" name="password" required="" />
+                                    <label>Password</label>
+                                    <span></span>
+                                </div>
+                                <div class="styled-input">
+                                    <input type="password" id="conf_pswd" name="conf_pswd" required="" />
+                                    <label> Confirm password</label>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <input type="submit" value="Register" id="register" name="register"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- //section -->
+
+</body>

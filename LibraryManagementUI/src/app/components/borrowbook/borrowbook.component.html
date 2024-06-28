@@ -1,0 +1,97 @@
+<body class="admin_style">
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="h-100">
+          <div class="sidebar-logo sidebar-color py-2">
+            <!-- href="studentboard" -->
+            <a [routerLink]="['/studentboard']">
+              <i class="fa-solid fa-carrot pe-2"></i>
+              <span class="link-text">Zesty</span>
+            </a>
+          </div>
+          <!-- Sidebar Navigation -->
+          <ul class="sidebar-nav">
+            <li class="sidebar-item">
+              <a [routerLink]="['/studentboard']" class="sidebar-link">
+                <i class="fa-solid fa-gauge-high pe-2"></i>
+                <span class="link-text">Studentboard</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/borrowbook']" class="sidebar-link collapsed">
+                <i class="fa-solid fa-book pe-2"></i>
+                <span class="link-text">Borrow Book</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a [routerLink]="['/myborrows']" class="sidebar-link collapsed">
+                <i class="fa-solid fa-book pe-2"></i>
+                <span class="link-text">My Borrows</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a (click)="logout()" class="sidebar-link collapsed appLogout">
+                <i class="fa-solid fa-power-off pe-2"></i>
+                <span class="link-text">Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </aside>
+      <!-- Main Component -->
+      <div class="main">
+        <nav class="navbar navbar-expand px-3 border-bottom nav-custum">
+          <!-- Button for sidebar toggle -->
+          <button class="btn text-left btn-custum" type="button" data-bs-theme="dark">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
+        <main class="content px-3 py-2">
+          <div class="container-fluid">
+            <div class="mb-3">
+              <h1>Borrow Book</h1>
+              <!---Add Search panel-->
+              <div class="col-md-12 w-100 mb-3 mt-2 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Search by Book Name, Author, Publisher, or ID_B" [(ngModel)]="searchText" (input)="searchBooks()">
+              </div>
+  
+              <div class="table-responsive table-responsive-sm table-responsive-md col-10 col-sm-10 col-md-12">
+                <table class="table table-bordered table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">ID</th>
+                      <th scope="col">Book Name</th>
+                      <th scope="col">Author</th>
+                      <th scope="col">Publisher</th>
+                      <th scope="col">Book Count</th>
+                      <th scope="col">Borrowed</th>
+                      <th scope="col">Borrow</th>
+                      <!---Add borrow book Button-->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let book of filteredBooks">
+                      <td>{{ book.ID_B }}</td>
+                      <td>{{ book.book_name }}</td>
+                      <td>{{ book.author }}</td>
+                      <td>{{ book.publisher }}</td>
+                      <td>{{ book.book_count }}</td>
+                      <td>{{ book.borrowed ? 'Yes' : 'No' }}</td> <!-- Display borrowed status -->
+                      <td>
+                        <button class="btn btn-primary" (click)="borrowBook(book)">Borrow</button>    <!----[disabled]="borrowing$ | async"-->
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  
+  </body>
