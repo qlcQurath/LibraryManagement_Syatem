@@ -76,7 +76,7 @@ After installing the packages, add the following line in WebApiConfig.cs:
 
 ### 1. Home Page
 
-![Homepage](screenshots/Homepage.png)
+![Homepage](screenshots/Homepage.png?raw=true "Title")
 
 ### 2. Admin Dasdboard
 
