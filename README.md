@@ -28,7 +28,6 @@ The project is structured into two main folders:
   - ASP.NET Web Application (.NET Framework)
 
 
-
 # Screenshot
 
 1. Home Page
@@ -44,7 +43,7 @@ The project is structured into two main folders:
 ![Student](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/1f6abe5a-2320-4750-83ab-cc0e3abc0ed6)
 
 
-### Cloning the Repository
+# Cloning the Repository
 
 ```bash
 git clone https://github.com/your-username/LibraryManagement_System.git
@@ -88,7 +87,6 @@ Backend Configuration
     * Microsoft.AspNet.WebApi.Cors
 After installing the packages, add the following line in WebApiConfig.cs:
    -config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
-
 
 
 # Contributing
