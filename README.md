@@ -74,17 +74,23 @@ After installing the packages, add the following line in WebApiConfig.cs:
 
 ## Screenshots
 
-1. Home Page![Homepage]
+### 1. Home Page![Homepage]
 
 ![Homepage](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/7083e72a-6070-4994-b5c8-a98ed2b28239)
 
-2. Admin Dasdboard
+![Homepage](Images/Homepage.jpg)
+
+### 2. Admin Dasdboard
 
 ![Admin](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/6347eb28-cc03-4577-9a1f-0f260a44a9df)
 
-3. Student UI
+![Admin](Images/Admin.jpg)
+
+### 3. Student UI
 
 ![Student](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/080f705f-a492-48ff-af7c-537d73ace2c1)
+
+![Student](Images/Student.jpg)
 
 Contributing
 
