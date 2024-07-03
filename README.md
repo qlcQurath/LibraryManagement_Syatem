@@ -74,7 +74,7 @@ After installing the packages, add the following line in WebApiConfig.cs:
 
 ## Screenshots
 
-### 1. Home Page![Homepage]
+### 1. Home Page
 
 ![Homepage](screenshots/Homepage.png)
 
