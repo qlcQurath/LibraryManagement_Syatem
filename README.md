@@ -27,6 +27,23 @@ The project is structured into two main folders:
   - .NET SDK
   - ASP.NET Web Application (.NET Framework)
 
+
+
+# Screenshot
+
+1. Home Page
+
+![Homepage](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/43651f81-a7a1-49cd-a4ee-e90137401dc8)
+
+2. Admin Dasdboard
+
+![Admin](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/b093c81e-ea92-4e96-aed8-d3def83b641e)
+
+3. Student UI
+
+![Student](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/1f6abe5a-2320-4750-83ab-cc0e3abc0ed6)
+
+
 ### Cloning the Repository
 
 ```bash
@@ -70,23 +87,10 @@ Backend Configuration
     * Serilog.AspNetCore
     * Microsoft.AspNet.WebApi.Cors
 After installing the packages, add the following line in WebApiConfig.cs:
-   -- config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+   -config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
 
-# Screenshot
 
-1. Home Page
-
-![Homepage](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/43651f81-a7a1-49cd-a4ee-e90137401dc8)
-
-2. Admin Dasdboard
-
-![Admin](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/b093c81e-ea92-4e96-aed8-d3def83b641e)
-
-3. Student UI
-
-![Student](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/1f6abe5a-2320-4750-83ab-cc0e3abc0ed6)
-
-Contributing
+# Contributing
 
 Feel free t contribute to this peoject by forking the repository and submitting a pull request. Any improvements or bug fixes are welocome!
