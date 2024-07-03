@@ -76,15 +76,15 @@ After installing the packages, add the following line in WebApiConfig.cs:
 
 ### 1. Home Page
 
-![Homepage](screenshots/Homepage.png)
+![Homepage](LibraryManagement_System/screenshots/Homepage.png)
 
 ### 2. Admin Dasdboard
 
-![Admin](screenshots/Admin.png)
+![Admin](LibraryManagement_System/screenshots/Admin.png)
 
 ### 3. Student UI
 
-![Student](screenshots/Student.png)
+![Student](LibraryManagement_System/screenshots/Student.png)
 
 Contributing
 
