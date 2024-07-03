@@ -76,15 +76,15 @@ After installing the packages, add the following line in WebApiConfig.cs:
 
 1. Home Page![Homepage]
 
-![Homepage](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/f1977464-27f1-4487-bd10-09d4210b86d5)
+![Homepage](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/7083e72a-6070-4994-b5c8-a98ed2b28239)
 
 2. Admin Dasdboard
 
-![Admin](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/ca5e6eaa-2a01-4b9c-9042-909085147ca5)
+![Admin](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/6347eb28-cc03-4577-9a1f-0f260a44a9df)
 
 3. Student UI
 
-![Student](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/5c269bc6-e039-46bd-9f81-dfe55f9bedd9)
+![Student](https://github.com/qlcQurath/LibraryManagement_Syatem/assets/91178311/080f705f-a492-48ff-af7c-537d73ace2c1)
 
 Contributing
 
