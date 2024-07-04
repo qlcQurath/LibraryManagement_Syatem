@@ -26,6 +26,11 @@ The project is structured into two main folders:
   - Visual Studio 2019 (IDE)
   - .NET SDK
   - ASP.NET Web Application (.NET Framework)
+ 
+- **Database (MySql)**
+  - Install xampp
+  - Open phpMyAdmin Page
+  - Import the .sql file from the project folder
 
 # Cloning the Repository
 
@@ -71,7 +76,17 @@ Backend Configuration
     * Microsoft.AspNet.WebApi.Cors
 After installing the packages, add the following line in WebApiConfig.cs:
    -config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+> to run this in visual studio 2019
+  - click the IIS Express (Google Chrome)
 ```
+
+## User Credentials
+
+1. Admin
+  Check the Admin table for User ID and Password
+2. Student
+  Check The user_data table for User ID and Password
 
 # Screenshot
 
