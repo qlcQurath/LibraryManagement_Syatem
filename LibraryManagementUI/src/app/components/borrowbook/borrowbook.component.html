@@ -59,7 +59,7 @@
                 <input type="text" class="form-control" placeholder="Search by Book Name, Author, Publisher, or ID_B" [(ngModel)]="searchText" (input)="searchBooks()">
               </div>
   
-              <div class="table-responsive table-responsive-sm table-responsive-md col-10 col-sm-10 col-md-12">
+              <div class="table-responsive table-responsive-sm table-responsive-md col-10 col-sm-10 col-md-12" style="max-height: 400px; overflow-y: auto;">
                 <table class="table table-bordered table-hover">
                   <thead class="thead-dark">
                     <tr>

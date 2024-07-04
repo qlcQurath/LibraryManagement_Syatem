@@ -1,26 +1,33 @@
 import { Injectable } from '@angular/core';
-import { v4 as uuid4} from 'uuid';
+import { v4 as uuid4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UuidService {
-  private uuid : string;
+  private uuid: string;
 
-  constructor() { 
+  constructor() {
     //generate UUID if not already present
-  this.uuid = localStorage.getItem('uuid') || '';   // Provide a default value ('') if getItem returns null
-  if(!this.uuid){
-    this.uuid = uuid4();
-    localStorage.setItem('uuid', this.uuid);
+    this.uuid = localStorage.getItem('uuid') || '';   // Provide a default value ('') if getItem returns null
+    if (!this.uuid) {
+      // this.uuid = uuid4();
+      // localStorage.setItem('uuid', this.uuid);
+      this.generateNewUuid();
+    }
   }
-  }
-  
-  getUuid(): string{
+
+  getUuid(): string {
     return this.uuid;
   }
 
-  clearUuid(): void{
+  clearUuid(): void {
     localStorage.removeItem('uuid');
+    this.generateNewUuid();
+  }
+
+  private generateNewUuid(): void {
+    this.uuid = uuid4();
+    localStorage.setItem('uuid', this.uuid);
   }
 }

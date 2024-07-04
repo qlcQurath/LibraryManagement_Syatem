@@ -89,31 +89,31 @@
                   </div>
                   <div class="form-group col-10 col-sm-10 col-md-6">
                     <label for="bookName" class="form-label">Book Name</label>
-                    <input type="text" class="form-control" id="book_name" name="bookName" required>
+                    <input type="text" class="form-control" id="book_name" name="bookName" required [(ngModel)]="bookName">
                   </div>
                   <div class="form-group col-10 col-sm-10 col-md-6">
                     <label for="authorName" class="form-label">Author Name</label>
-                    <input type="text" class="form-control" id="author" name="authorName" required>
+                    <input type="text" class="form-control" id="author" name="authorName" required [(ngModel)]="authorName">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-10 col-sm-10 col-md-6">
                     <label for="publisher" class="form-label">Publisher</label>
-                    <input type="text" class="form-control" id="publisher" name="publisher" required>
+                    <input type="text" class="form-control" id="publisher" name="publisher" required [(ngModel)]="publisher">
                   </div>
                   <div class="form-group col-10 col-sm-10 col-md-6">
                     <label for="numberOfBooks" class="form-label">Number of Books</label>
-                    <input type="number" class="form-control" id="book_count" name="numberOfBooks" required>
+                    <input type="number" class="form-control" id="book_count" name="numberOfBooks" required [(ngModel)]="numberOfBooks" (input)="calculateTotalCost()">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-10 col-sm-10 col-md-6">
                     <label for="costPerBook" class="form-label">Cost per Book</label>
-                    <input type="number" step="0.01" class="form-control" id="cost_per_book" name="costPerBook" required>
+                    <input type="number" step="1" class="form-control" id="cost_per_book" name="costPerBook" required [(ngModel)]="costPerBook" (input)="calculateTotalCost()">
                   </div>
                   <div class="form-group col-10 col-sm-10 col-md-6">
                     <label for="totalCost" class="form-label">Total Cost</label>
-                    <input type="number" step="0.01" class="form-control" id="total_cost" name="totalCost" required>
+                    <input type="number" step="1" class="form-control" id="total_cost" name="totalCost" required [value]="totalCost" readonly>
                   </div>
                 </div>
                 <div class="form-group row">

@@ -93,8 +93,8 @@
                     <th scope="col">Branch/Section</th>
                     <th scope="col">Email</th>
                     <th scope="col">Phone Number</th>
-                    <th scope="col">Delete</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                     <!---add delete user btn-->
                   </tr>
                 </thead>
@@ -144,12 +144,6 @@
                     <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.phoneno"></td>
 
                     <td>
-                      <button *ngIf="editingRow?.usn !== row.usn" class="btn btn-danger btn-sm"
-                        (click)="deleteRow_std(row.usn)">
-                        <i class="fa-solid fa-trash"></i>
-                      </button>
-                    </td>
-                    <td>
                       <button *ngIf="editingRow?.usn !== row.usn" class="btn btn-primary btn-sm"
                         (click)="editRow_std(row)">
                         <i class="fa-solid fa-edit"></i>
@@ -160,6 +154,14 @@
                         <button class="btn btn-secondary btn-sm" (click)="cancelEdit()"><i class="fa-solid fa-times"></i></button>
                       </div>
                     </td>
+
+                    <td>
+                      <button *ngIf="editingRow?.usn !== row.usn" class="btn btn-danger btn-sm"
+                        (click)="deleteRow_std(row.usn)">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                    
                   </tr>
                 </tbody>
               </table>

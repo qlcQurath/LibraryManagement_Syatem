@@ -188,6 +188,15 @@ a.sidebar-link {
   width: 100vw;
 }
 
+.table-responsive {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* .button_style{
+  align-items: right;
+} */
+
 /*Table style start*/
 th {
   background-color: #36454F !important;

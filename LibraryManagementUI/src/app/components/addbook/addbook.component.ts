@@ -10,8 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./addbook.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class AddbookComponent {
+export class AddbookComponent implements OnInit{
   uuid!: string;
+  bookName!: string;
+  authorName!: string;
+  publisher!: string;
+  numberOfBooks!: number;
+  costPerBook!: number;
+  totalCost: number = 0;
 
   //event listener for preventing default behaviour
   private wheelEventListener!: (e: Event) => void;
@@ -63,12 +69,20 @@ export class AddbookComponent {
       success: () => {
         this.clearForm();
         this.uuidService.clearUuid();
+        this.uuid = this.uuidService.getUuid();     //Refresh UUID
         alert('Form submitted successfully!');
       },
       error: () => {
         alert('Failed to submit form.');
       }
     });
+  }
+
+  //calcultate the total cost 
+  calculateTotalCost(): void {
+    const cost = this.costPerBook || 0;
+    const count = this.numberOfBooks || 0;
+    this.totalCost = cost * count;
   }
 
   //method to claer the form details

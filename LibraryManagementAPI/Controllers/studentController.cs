@@ -881,6 +881,9 @@ namespace LibraryManagementAPI.Controllers
             {
                 //open connection
                 con.Open();
+                //update the fine in book issue table
+                UpdateFines(con);
+
                 //query creation
                 string query = "SELECT ID_B, book_name, USN, DATE_FORMAT(issue_date, '%Y-%m-%d') as issue_date, DATE_FORMAT(due_date, '%Y-%m-%d') as due_date, fine FROM book_issue WHERE return_status = 'Not Returned' ORDER BY issue_date ASC";     //DESC
                 //command execution
