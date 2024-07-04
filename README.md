@@ -29,7 +29,9 @@ The project is structured into two main folders:
  
 - **Database (MySql)**
   - Install xampp
-  - Open phpMyAdmin Page
+  - Open the XAMPP Control Panel.
+  - Start the Apache and MySQL services by clicking on the "Start" buttons next to them.
+  - Once Apache and MySQL are running, open a web browser. Navigate to http://localhost/phpmyadmin.
   - Import the .sql file from the project folder
 
 # Cloning the Repository
