@@ -13,14 +13,19 @@ export class MyborrowsComponent implements OnInit, OnDestroy {
   borrowedBooks: any[] = [];
   private usnSubscription: Subscription | undefined;
 
-  constructor(private sessionService: SessionService, private router: Router, private http: HttpClient) {}
+  constructor(private sessionService: SessionService, 
+    private router: Router, 
+    private http: HttpClient) {}
 
   ngOnInit(): void {
+    console.log('MyborrowsComponent initialized');      //added log
     this.usnSubscription = this.sessionService.getUSN().subscribe(usn => {
       if (usn) {
+        console.log('Fetching borrowed books for USN:', usn);     //added log
         this.fetchBorrowedBooks(usn);
       } else {
         alert('Student not logged in');
+        this.router.navigate(['/login']);
       }
     });
   }
@@ -28,6 +33,7 @@ export class MyborrowsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.usnSubscription) {
       this.usnSubscription.unsubscribe();
+      console.log('usnSubscription unSubscribed');      //added log
     }
   }
 
@@ -36,8 +42,10 @@ export class MyborrowsComponent implements OnInit, OnDestroy {
     this.http.get<any[]>(apiUrl).subscribe(
       books => {
         this.borrowedBooks = books;
+        console.log('Borrowed books:', books);    //log the response
       },
       error => {
+        console.error('Failed to fetch borrowed books:', error);    //added log
         alert('Failed to fetch borrowed books.');
       }
     );

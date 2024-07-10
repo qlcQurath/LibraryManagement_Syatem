@@ -166,6 +166,11 @@ a.sidebar-link {
   border-color: #de5d83;
 }
 
+.table-responsive {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
 .content {
   flex: 1;
   max-width: 100vw;

@@ -98,26 +98,44 @@
                 <tbody>
                   <ng-container *ngFor="let row of rows; let i = index">
                     <tr>
+                      <!-- <td *ngIf="editingRowIndex !== i">{{row.ID_B}}</td>
+                      <td *ngIf="editingRowIndex === i"><input type="text" [(ngModel)]="editingRow.ID_B" required></td> -->
                       <td>{{row.ID_B}}</td>
-                      <td>{{row.book_name}}</td>
-                      <td>{{row.author}}</td>
-                      <td>{{row.publisher}}</td>
-                      <td>{{row.book_count}}</td>
-                      <td>{{row.cost_per_book}}</td>
+
+                      <td *ngIf="editingRowIndex !== i">{{row.book_name}}</td>
+                      <td *ngIf="editingRowIndex === i"><input type="text" [(ngModel)]="editingRow.book_name" required></td>
+
+                      <td *ngIf="editingRowIndex !== i">{{row.author}}</td>
+                      <td *ngIf="editingRowIndex === i"><input type="text" [(ngModel)]="editingRow.author" required></td>
+
+                      <td *ngIf="editingRowIndex !== i">{{row.publisher}}</td>
+                      <td *ngIf="editingRowIndex === i"><input type="text" [(ngModel)]="editingRow.publisher" required></td>
+
+                      <td *ngIf="editingRowIndex !== i">{{row.book_count}}</td>
+                      <td *ngIf="editingRowIndex === i"><input type="number" [(ngModel)]="editingRow.book_count"required></td>
+
+                      <td *ngIf="editingRowIndex !== i">{{row.cost_per_book}}</td>
+                      <td *ngIf="editingRowIndex === i"><input type="number" [(ngModel)]="editingRow.cost_per_book"required></td>
+
                       <td>{{row.total_cost}}</td>
                       <td>
-                        <ng-container *ngIf="editingRowIndex !== i; else editRow">
+                        <ng-container *ngIf="editingRowIndex !== i; else editBtns">
                           <button class="btn btn-primary btn-sm" (click)="editRow_book(i)">
                             <i class="fa-solid fa-edit"></i>
                           </button>
                         </ng-container>
-                        <ng-template #editRow>
+                        <ng-template #editBtns>
                           <div class="btn-group" role="group">
-                            <button class="btn btn-success btn-sm" (click)="saveRow_book()"><i class="fa-solid fa-save"></i></button>
-                            <button class="btn btn-secondary btn-sm" (click)="cancelEdit()"><i class="fa-solid fa-times"></i></button>
+                            <button class="btn btn-success btn-sm" (click)="saveRow_book()">
+                              <i class="fa-solid fa-save"></i>
+                            </button>
+                            <button class="btn btn-secondary btn-sm" (click)="cancelEdit()">
+                              <i class="fa-solid fa-times"></i>
+                            </button>
                           </div>
                         </ng-template>
                       </td>
+
                       <td>
                         <button class="btn btn-danger btn-sm" (click)="deleteRow_book(row.ID_B)">
                           <i class="fa-solid fa-trash"></i>

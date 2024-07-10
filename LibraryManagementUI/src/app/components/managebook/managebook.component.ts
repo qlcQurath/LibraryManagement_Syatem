@@ -1,7 +1,7 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import * as $ from 'jquery';
 import { SessionService } from 'src/app/services/session.service';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-managebook',
@@ -55,7 +55,7 @@ export class ManagebookComponent implements OnInit{
 
   saveRow_book(): void {
     debugger;
-    if(this. editingRow) {
+    if(this. editingRow && this.validateRow(this.editingRow)) {
       $.ajax({
         type: "PUT",
         url: `http://localhost:53110/api/student/updateBook/${this.editingRow.ID_B}`,
@@ -76,6 +76,29 @@ export class ManagebookComponent implements OnInit{
         }
       });
     }
+  }
+
+  //validate the credentials
+  private validateRow(row: any): boolean {
+    debugger;
+    if(!row.book_name || !row.author || !row.publisher || !row.book_count || !row.cost_per_book) {
+      alert('Please fill in all fields.');
+      return false;
+    }
+
+    //check if the book name or ID_B is repeated
+    const duplicates = this.rows.filter(r => r.ID_B !== row.ID_B && r.book_name.toLowerCase() === row.book_name.toLowerCase());
+    if(duplicates.length > 0 ){
+      alert('Book Name or ID_B already exists.');
+      return false;
+    }
+
+    //calculate total cost if book count or cost per book is edited
+    if(this.rows[this.editingRowIndex].book_count !== row.book_count || this.rows[this.editingRowIndex].cost_per_book !== row.cost_per_book) {
+      row.total_cost = row.book_count * row.cost_per_book;
+    }
+
+    return true;
   }
 
   cancelEdit(): void {

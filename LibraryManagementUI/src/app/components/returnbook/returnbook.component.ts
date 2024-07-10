@@ -55,9 +55,12 @@ export class ReturnbookComponent implements OnInit{
       contentType: "application/json;charset=UTF-8",
       success: (resp: any) => {
         console.log('Return date updated successfully', resp);
-        alert('Return date updated successfully');
+        alert('Book returned successfully');
         //update return date in the table
         row.return_date = new Date().toISOString().split('T')[0];
+
+        //Remove the returned book from the ui
+        this.rows = this.rows.filter(book => book.ID_B !== row.ID_B); 
       },
       error: (resp: any) => {
         console.error('Failed to update return date', resp);

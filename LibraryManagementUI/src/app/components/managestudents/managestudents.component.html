@@ -116,47 +116,47 @@
                     </tr> -->
 
                   <tr *ngFor="let row of rows">
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.usn}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.usn"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.usn}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.usn"></td>
 
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.firstname}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.firstname"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.firstname}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.firstname"></td>
 
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.lastname}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.lastname"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.lastname}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.lastname"></td>
 
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.age}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.age"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.age}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.age"></td>
 
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.gender}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.gender"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.gender}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.gender"></td>
 
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.course}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.course"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.course}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.course"></td>
 
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.branch}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.branch"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.branch}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.branch"></td>
 
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.email}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.email"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.email}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.email"></td>
 
-                    <td *ngIf="editingRow?.usn !== row.usn">{{row.phoneno}}</td>
-                    <td *ngIf="editingRow?.usn === row.usn"><input type="text" [(ngModel)]="editingRow.phoneno"></td>
+                    <td *ngIf="editingRow?.tempId !== row.tempId">{{row.phoneno}}</td>
+                    <td *ngIf="editingRow?.tempId === row.tempId"><input type="text" [(ngModel)]="editingRow.phoneno"></td>
 
                     <td>
-                      <button *ngIf="editingRow?.usn !== row.usn" class="btn btn-primary btn-sm"
+                      <button *ngIf="editingRow?.tempId !== row.tempId" class="btn btn-primary btn-sm"
                         (click)="editRow_std(row)">
                         <i class="fa-solid fa-edit"></i>
                       </button>
 
-                      <div *ngIf="editingRow?.usn === row.usn" class="btn-group" role="group">
+                      <div *ngIf="editingRow?.tempId === row.tempId" class="btn-group" role="group">
                         <button class="btn btn-success btn-sm" (click)="saveRow_std()"><i class="fa-solid fa-save"></i></button>
                         <button class="btn btn-secondary btn-sm" (click)="cancelEdit()"><i class="fa-solid fa-times"></i></button>
                       </div>
                     </td>
 
                     <td>
-                      <button *ngIf="editingRow?.usn !== row.usn" class="btn btn-danger btn-sm"
+                      <button *ngIf="editingRow?.tempId !== row.tempId" class="btn btn-danger btn-sm"
                         (click)="deleteRow_std(row.usn)">
                         <i class="fa-solid fa-trash"></i>
                       </button>

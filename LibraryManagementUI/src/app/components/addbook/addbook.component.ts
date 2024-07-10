@@ -66,14 +66,15 @@ export class AddbookComponent implements OnInit{
       url: "http://localhost:53110/api/student/books",
       contentType: "application/json;charset=UTF-8",
       data: JSON.stringify(formData),
-      success: () => {
+      success: (response) => {
         this.clearForm();
         this.uuidService.clearUuid();
         this.uuid = this.uuidService.getUuid();     //Refresh UUID
-        alert('Form submitted successfully!');
+        alert(`Form submitted successfully! ${response.message}`);
       },
-      error: () => {
-        alert('Failed to submit form.');
+      error: (xhr, status, error) => {
+        //handle error response
+        alert(`Failed to submit form: ${xhr.responseJSON || xhr.statusText}`);
       }
     });
   }

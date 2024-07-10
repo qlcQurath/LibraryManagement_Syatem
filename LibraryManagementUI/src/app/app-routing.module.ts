@@ -37,7 +37,6 @@ const routes: Routes = [
   { path: 'managebook', component: ManagebookComponent, canActivate: [adminAuthGuard]},
   { path: 'addbook', component: AddbookComponent, canActivate: [adminAuthGuard]},
   { path: 'bookissue', component: BookissueComponent, canActivate: [adminAuthGuard]},
-  { path: 'managebook', component: ManagebookComponent, canActivate: [adminAuthGuard]},
   { path: 'returnbook', component: ReturnbookComponent, canActivate: [adminAuthGuard]},
   { path: 'returntracker', component: ReturntrackerComponent, canActivate: [adminAuthGuard]},
   { path: 'report', component: ReportComponent, canActivate: [adminAuthGuard]},

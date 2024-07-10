@@ -643,48 +643,67 @@ namespace LibraryManagementAPI.Controllers
         //new post method for books table - insert into books
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("books")]
-        // POST api/values
         public HttpResponseMessage Books_post([FromBody] booksdata book_data)
         {
-            //connection establishment
+            // Connection establishment
             MySqlConnection con = new MySqlConnection(ConfigurationManager.AppSettings["constr"]);
 
             try
             {
-                //open connection
+                // Open connection
                 con.Open();
 
-                //query creation
-                string query = "INSERT INTO books (ID_B, book_name,author,publisher,book_count,cost_per_book,total_cost)" +
-                               "VALUES (@ID_B,@book_name,@author,@publisher,@book_count,@cost_per_book,@total_cost)";
+                // Check if the book already exists with the same name but different author or publisher
+                string checkQuery = "SELECT COUNT(*) FROM books WHERE book_name = @book_name AND (author != @author OR publisher != @publisher)";
+                MySqlCommand checkCmd = new MySqlCommand(checkQuery, con);
+                checkCmd.Parameters.AddWithValue("@book_name", book_data.book_name);
+                checkCmd.Parameters.AddWithValue("@author", book_data.author);
+                checkCmd.Parameters.AddWithValue("@publisher", book_data.publisher);
 
-                //query execution
-                MySqlCommand cmd = new MySqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@ID_B", book_data.ID_B);
-                cmd.Parameters.AddWithValue("@book_name", book_data.book_name);
-                cmd.Parameters.AddWithValue("@author", book_data.author);
-                cmd.Parameters.AddWithValue("@publisher", book_data.publisher);
-                cmd.Parameters.AddWithValue("@book_count", book_data.book_count);
-                cmd.Parameters.AddWithValue("@cost_per_book", book_data.cost_per_book);
-                cmd.Parameters.AddWithValue("@total_cost", book_data.total_cost);
-                int statuscode = cmd.ExecuteNonQuery();
+                int existingCount = Convert.ToInt32(checkCmd.ExecuteScalar());
 
-                //response with status code
-                if (statuscode > 0)
+                if (existingCount > 0)
                 {
-                    return Request.CreateResponse(System.Net.HttpStatusCode.OK, "Data Inserted Succesfully");
+                    // Book with the same name exists with different author or publisher
+                    string insertQuery = "INSERT INTO books (ID_B, book_name, author, publisher, book_count, cost_per_book, total_cost)" +
+                                         "VALUES (@ID_B, @book_name, @author, @publisher, @book_count, @cost_per_book, @total_cost)";
+                    MySqlCommand insertCmd = new MySqlCommand(insertQuery, con);
+                    insertCmd.Parameters.AddWithValue("@ID_B", book_data.ID_B);
+                    insertCmd.Parameters.AddWithValue("@book_name", book_data.book_name);
+                    insertCmd.Parameters.AddWithValue("@author", book_data.author);
+                    insertCmd.Parameters.AddWithValue("@publisher", book_data.publisher);
+                    insertCmd.Parameters.AddWithValue("@book_count", book_data.book_count);
+                    insertCmd.Parameters.AddWithValue("@cost_per_book", book_data.cost_per_book);
+                    insertCmd.Parameters.AddWithValue("@total_cost", book_data.total_cost);
+
+                    int statuscode = insertCmd.ExecuteNonQuery();
+
+                    if (statuscode > 0)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, "Data Inserted Successfully");
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.BadRequest, "Data Insertion failed");
+                    }
                 }
                 else
                 {
-                    return Request.CreateResponse(System.Net.HttpStatusCode.BadRequest, "Data Insertion failed");
+                    // Book with the same name exists with the same author and publisher
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, "Book with the same name and same author/publisher already exists");
                 }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, "Error inserting data: " + ex.Message);
             }
             finally
             {
                 con.Close();
             }
-
         }
+
 
 
         //new get method for book_issue table 
@@ -807,7 +826,7 @@ namespace LibraryManagementAPI.Controllers
             {
                 con.Close();
             }
-            return Ok();
+            return Ok(new { message = "Book Borrowed Successfully."});
         }
 
         //methos to update the fine column
@@ -833,7 +852,7 @@ namespace LibraryManagementAPI.Controllers
                 con.Open();
 
                 //query to fetch borrowed books based on USN
-                string query = @"SELECT ID_B, book_name, author, publisher, USN, DATE_FORMAT(issue_date, '%Y-%m-%d') as issue_date, DATE_FORMAT(due_date, '%Y-%m-%d') as due_date FROM book_issue WHERE USN = @usn";
+                string query = @"SELECT ID_B, book_name, author, publisher, USN, DATE_FORMAT(issue_date, '%Y-%m-%d') as issue_date, DATE_FORMAT(due_date, '%Y-%m-%d') as due_date, return_status FROM book_issue WHERE USN = @usn ORDER BY return_status ASC";      //sort to display not returned first
                 MySqlCommand cmd = new MySqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@USN", usn);
 
@@ -850,7 +869,8 @@ namespace LibraryManagementAPI.Controllers
                         publisher = reader["publisher"].ToString(),
                         USN = reader["USN"].ToString(),
                         issue_date = reader["issue_date"].ToString(),
-                        due_date = reader["due_date"].ToString()
+                        due_date = reader["due_date"].ToString(),
+                        return_status = reader["return_status"].ToString()
                     });
                 }
                 return Ok(borrowedBooks);

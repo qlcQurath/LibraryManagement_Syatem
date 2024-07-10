@@ -27,7 +27,7 @@ export class LoginComponent {
     const logindata = {email: email, password: password};
 
     if (email == '' || password == '') {
-      alert("Please enter form details");
+      alert("Please enter Credentials.");
       return;
     }
 
