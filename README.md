@@ -107,4 +107,4 @@ After installing the packages, add the following line in WebApiConfig.cs:
 
 # Contributing
 
-Feel free t contribute to this peoject by forking the repository and submitting a pull request. Any improvements or bug fixes are welocome!
+Feel free to contribute to this peoject by forking the repository and submitting a pull request. Any improvements or bug fixes are welocome!
